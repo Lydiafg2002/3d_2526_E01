@@ -6553,9 +6553,9 @@ MonoBehaviour:
         z: 14.691065
       Rotation:
         value:
-          x: -0.0072564944
+          x: -0.007256492
           y: -0.6450572
-          z: 0.029727057
+          z: 0.029727058
           w: 0.7635214
     - Position:
         x: -13.5
@@ -14130,7 +14130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   xySpeed: 100
-  forwardSpeed: 1
+  forwardSpeed: 2
   lookSpeed: 10
   aimObject: {fileID: 1216141446}
   model: {fileID: 1147820295}
@@ -14268,6 +14268,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f1b9164d-baec-4631-9be6-75cc287500b9
     m_ActionName: 'Player/RollRigth[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1965131526}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Boost
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_ActionId: 9b057909-3ff0-4d5d-b982-15e1405ccab8
+    m_ActionName: 'Player/Boost[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
