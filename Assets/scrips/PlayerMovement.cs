@@ -4,6 +4,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.ProBuilder.MeshOperations;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -114,14 +116,34 @@ public class PlayerMovement : MonoBehaviour
 
         float originFOV = state ? 40 : 60;
         float endFOV = state ? 60 : 40;
+
+        float originChrom = state ? 0 : 1;
+        float  endChrom = state ? 1 : 0;
+
+        float originDistorsion = state ? 0 : -6f;
+        float endDistorsion = state ? -6f : 0;
+
         float speed = state ? forwardSpeed * 2 : forwardSpeed;
         float zoom = state ? -7 : 0;
+
+
+        DOVirtual.Float(originChrom, endChrom, .5f, Chromatic);
+        DOVirtual.Float(originDistorsion, endDistorsion, .5f, Distortion);
         DOVirtual.Float(forwardSpeed, speed, .15f, SetSpeed);
         DOVirtual.Float(originFOV, endFOV, .5f, FieldOfView);
         SetCameraZoom(zoom, .4f);
 
     }
-
+    void Chromatic(float x)
+    {
+        Camera.main.GetComponent<Volume>().profile.TryGet(out ChromaticAberration c);
+        c.intensity.value = x;
+    }
+    void Distortion(float x)
+    {
+        Camera.main.GetComponent<Volume>().profile.TryGet(out LensDistortion l);
+        l.intensity.value = x;
+    }
 
     void FieldOfView(float fov)
     {
