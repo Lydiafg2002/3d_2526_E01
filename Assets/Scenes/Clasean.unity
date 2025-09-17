@@ -709,12 +709,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140802509}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.41}
+  m_LocalRotation: {x: -0.026138969, y: -0.58498824, z: -0.018755965, w: 0.81040347}
+  m_LocalPosition: {x: 8.446869, y: 13.13053, z: -2.8454175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1967961411}
+  m_Father: {fileID: 1388606324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &140802511
 MonoBehaviour:
@@ -740,7 +740,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 40
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -1128,6 +1128,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1176,7 +1177,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1285,6 +1286,23 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: d11a36c5d8be8214aaa7f663f74c0e0d, type: 2}
 --- !u!43 &341931449
 Mesh:
   m_ObjectHideFlags: 0
@@ -6442,9 +6460,9 @@ MonoBehaviour:
         z: 14.691065
       Rotation:
         value:
-          x: -0.0072564944
+          x: -0.007256492
           y: -0.6450572
-          z: 0.029727057
+          z: 0.029727058
           w: 0.7635214
     - Position:
         x: -13.5
@@ -10480,6 +10498,38 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &1388606323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388606324}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1388606324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388606323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.026138969, y: 0.58498824, z: 0.018755965, w: 0.81040347}
+  m_LocalPosition: {x: 0.038592458, y: -13.676563, z: -2.3597286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 140802510}
+  m_Father: {fileID: 1967961411}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1392949655
 GameObject:
   m_ObjectHideFlags: 0
@@ -14080,6 +14130,7 @@ MonoBehaviour:
   xySpeed: 100
   forwardSpeed: 2
   lookSpeed: 10
+  cameraHolder: {fileID: 1388606323}
   aimObject: {fileID: 1216141446}
   model: {fileID: 1147820295}
   dollyCart: {fileID: 1967961412}
@@ -14258,7 +14309,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1965131525}
-  - {fileID: 140802510}
+  - {fileID: 1388606324}
   - {fileID: 1371346376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

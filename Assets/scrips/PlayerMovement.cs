@@ -11,12 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public float xySpeed = 10;
     public float forwardSpeed = 1f;
     public float lookSpeed;
-
+    public GameObject cameraHolder;
     public GameObject aimObject;
     public Transform model;
     public CinemachineSplineCart dollyCart;
     public AudioSource audioSource;
     public TrailRenderer middleTrail;
+    
     private object inputAction;
 
     private void Awake()
@@ -111,15 +112,25 @@ public class PlayerMovement : MonoBehaviour
 
         middleTrail.emitting = state;
 
-
-
-
-
-
-
-
+        float originFOV = state ? 40 : 60;
+        float endFOV = state ? 60 : 40;
         float speed = state ? forwardSpeed * 2 : forwardSpeed;
+        float zoom = state ? -7 : 0;
         DOVirtual.Float(forwardSpeed, speed, .15f, SetSpeed);
+        DOVirtual.Float(originFOV, endFOV, .5f, FieldOfView);
+        SetCameraZoom(zoom, .4f);
+
+    }
+
+
+    void FieldOfView(float fov)
+    {
+        cameraHolder.GetComponentInChildren<CinemachineCamera>().Lens.FieldOfView = fov;
+    }
+    void SetCameraZoom(float zoom, float duration)
+    {
+        cameraHolder.transform.DOLocalMove(new Vector3(0, 0, zoom), duration);
+
     }
     private void OnDrawGizmos()
     {
