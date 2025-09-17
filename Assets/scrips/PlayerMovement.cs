@@ -2,16 +2,27 @@ using DG.Tweening;
 using Unity.Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public InputSystem_Actions  inputActions;
     public float xySpeed = 10;
     public float forwardSpeed = 1f;
     public float lookSpeed;
+
     public GameObject aimObject;
     public Transform model;
     public CinemachineSplineCart dollyCart;
+    public AudioSource audioSource;
+    public TrailRenderer middleTrail;
+    private object inputAction;
 
+    private void Awake()
+    {
+        inputActions = new InputSystem_Actions();
+    }
     private void Start()
     {
         SetSpeed(forwardSpeed);
@@ -25,7 +36,27 @@ public class PlayerMovement : MonoBehaviour
         RotationLook(h, v, lookSpeed);
         HorizontalLean(model, h, 80, .1f);
     }
+    private void OnEnable()
+    {
+        inputActions.Player.Boost.performed += OnBoostPressed;
+        inputActions.Player.Boost.canceled += OnBoostReleased;
+        inputActions.Enable();
+    }
+    private void OnDisable()
+    {
+        inputActions.Player.Boost.performed -= OnBoostPressed;
+        inputActions.Player.Boost.canceled -= OnBoostReleased;
+        inputActions.Disable();
+    }
+    void OnBoostPressed(InputAction.CallbackContext context)
+    {
+        Boost(true);
+    }
 
+    void OnBoostReleased(InputAction.CallbackContext context)
+    {
+        Boost(false);
+    }
     void LocalMove(float x, float y, float speed)
     {
         transform.localPosition += new Vector3(x, y, 0) * speed * Time.deltaTime;
@@ -69,6 +100,24 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Boost(bool state)
     {
+        if (state)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.Stop();
+        }
+
+        middleTrail.emitting = state;
+
+
+
+
+
+
+
+
         float speed = state ? forwardSpeed * 2 : forwardSpeed;
         DOVirtual.Float(forwardSpeed, speed, .15f, SetSpeed);
     }
