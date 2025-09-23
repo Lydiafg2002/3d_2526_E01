@@ -9,6 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool joystick;
     public InputSystem_Actions  inputActions;
     public float xySpeed = 10;
     public float forwardSpeed = 1f;
@@ -32,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        float h = Input.GetAxis("Mouse X");
-        float v = Input.GetAxis("Mouse Y");
+        float h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Mouse X");
+        float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Mouse Y");
 
         LocalMove(h, v, xySpeed);
         RotationLook(h, v, lookSpeed);

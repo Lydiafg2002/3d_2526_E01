@@ -294,6 +294,28 @@
                 },
                 {
                     "name": "",
+                    "id": "526cedf0-f966-4f62-bd4c-776740b67adc",
+                    "path": "<DualShockGamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e955dec-4a2d-46cb-9b58-56f707c123ae",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cbac6039-9c09-46a1-b5f2-4e5124ccb5ed",
                     "path": "<Keyboard>/2",
                     "interactions": "",
@@ -459,6 +481,17 @@
                 },
                 {
                     "name": "",
+                    "id": "dcdc9828-d601-4c7d-ac65-adfcde1d24b9",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "98f0b7d4-e683-47fc-ae8e-f517acd78eff",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -470,8 +503,30 @@
                 },
                 {
                     "name": "",
+                    "id": "39c3bfac-5894-4b42-83ba-3f63a02cae2f",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollRigth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5cb22cc0-6921-4437-90ea-9edb7f9f7799",
                     "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1ba5538-1250-4d2e-9d0b-bf67834bd3d4",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
